@@ -1,9 +1,8 @@
 <template>
-  <form>
-    <div>
-      <input type="text" v-model="item"/>
-    </div>
-  </form>
+  <div id="header">
+        <input type="text" v-model="item" @keyup.enter="add_Todo" placeholder="What needs to be done?"/>
+  </div>
+
 </template>
 
 <script>
@@ -12,18 +11,36 @@
     name: 'headers',
     data:() => {
     	return {
-    		item:'',
-        keyword:''
+    		item:''
       }
     },
     //相当于提交Mutation
-    /*methods:{
-      addTodo(){
-        this.$store.commit('addTodo', this.item)
+    methods:{
+      add_Todo(e){
+      	if (this.item.trim()) this.$store.commit('add_Todo', this.item);
+      	this.item = '';
+        e.preventDefault();
       }
-    },*/
-    methods: mapMutations([
-      'addTodo','search'
-    ]),
+    },
   }
 </script>
+
+<style scoped>
+  #header input{
+    box-sizing: border-box;
+    padding: 16px;
+    font-size: 24px;
+    width: 100%;
+    line-height: 1.4em;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  }
+
+  #header input:focus{
+    outline: none;
+    border: none;
+
+  }
+
+</style>
