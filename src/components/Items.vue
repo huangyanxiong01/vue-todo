@@ -1,7 +1,9 @@
 <template>
   <div class="items">
     <ul>
-      <li v-for="item in items"> <a  class="collection-item">{{item.content}}</a></li>
+      <li v-for="item in items">
+          <a  class="collection-item">{{item.content}}</a>
+      </li>
     </ul>
   </div>
 </template>
@@ -27,18 +29,36 @@
   .items ul{
     display: inline;
   }
-  .items ul li{
-    list-style: none;
-    border: 1px solid #e0e0e0;
-    text-align: center;
-  }
 
   .items > ul :not(:first-child) {
     border-top:none;
   }
 
+  .items ul li{
+    overflow: hidden;
+    list-style: none;
+    border: 1px solid #e0e0e0;
+  }
 
-  .items ul li a{
+  .items ul li div {
+    float: left;
+  }
+
+  .items ul li div input{
+    width: 40px;
+    height: 40px;
+  }
+
+
+
+
+
+
+
+
+
+ .items ul li a{
+    word-wrap: break-word;
     padding: 16px;
     font-size: 24px;
     display: block;

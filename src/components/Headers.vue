@@ -1,6 +1,7 @@
 <template>
   <div id="header">
         <input type="text" v-model="item" @keyup.enter="add_Todo" placeholder="What needs to be done?"/>
+        <input type="text" v-model="keyword" @keyup="search"  placeholder="Todo Filter" />
   </div>
 
 </template>
@@ -11,15 +12,21 @@
     name: 'headers',
     data:() => {
     	return {
-    		item:''
+    		item:'',
+        keyword:''
       }
     },
     //相当于提交Mutation
     methods:{
       add_Todo(e){
-      	if (this.item.trim()) this.$store.commit('add_Todo', this.item);
+      	let item = this.item.toString().trim();
+      	if (item) this.$store.commit('add_Todo', item);
       	this.item = '';
         e.preventDefault();
+      },
+      search(e){
+      	console.info('Header component',this.keyword);
+        return this.$store.commit('search',this.keyword);
       }
     },
   }
