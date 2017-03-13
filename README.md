@@ -1,6 +1,10 @@
-# todo
+# Todo
 
-> A Vue.js project
+>The Todo project built with Vue+Vuex+Vue-Route
+
+<div style="text-align: center;">
+<img src="./src/assets/vue-todo.png" />
+</div>
 
 ## Build Setup
 
@@ -26,6 +30,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-# vue-todo
